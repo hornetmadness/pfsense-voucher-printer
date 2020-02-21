@@ -1,0 +1,7 @@
+arrow
+sqlalchemy
+sqlalchemy_utils
+flask
+flask_wtf
+flask-login
+gunicorn
