@@ -2,7 +2,7 @@
 
 (https://syslinux.info)
 
-This is a simple python and Flask interface to importing and printing vouchers generated from pfsence
+This is a simple python and Flask interface to importing and printing vouchers generated from pfsense
 
 This was built to print vouchers on a thermal printer like [this one](https://www.amazon.com/gp/product/B07R39G4WZ/) and specificly to make use of [this app](https://play.google.com/store/apps/details?id=mate.bluetoothprint) for the printing
 
