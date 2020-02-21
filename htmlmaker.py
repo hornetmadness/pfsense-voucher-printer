@@ -5,6 +5,7 @@ MAIN_HTML = Template("""
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="refresh" content="15">
   <title>Print Vouchers</title>
   <style>
     html, body {
@@ -53,7 +54,6 @@ BUTTON_HTML = Template("""
   <button class="button", onclick="window.location.href = 'my.bluetoothprint.scheme://${print_url}'">${time} Minute Voucher</button>
 """)
 
-
 def render(print_url, times):
   thelist = ""
   for time in times:
@@ -63,4 +63,7 @@ def render(print_url, times):
     itemtxt += BUTTON_HTML.substitute(print_url=p, time=time[0])
     itemtxt +=" </li>"
     thelist += itemtxt
+
+  if not thelist:
+    thelist = "<li> <h3>No active vouchers found in the DB</h3> </li>"
   return MAIN_HTML.substitute(list_html=thelist)
