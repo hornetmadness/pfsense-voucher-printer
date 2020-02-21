@@ -2,9 +2,17 @@
 
 (https://syslinux.info)
 
-This is a simple python and Flask interface to importing and printing vouchers generated from pfsense
+This is some simple python scripts and Flask interface to importing and printing vouchers generated from pfsense
 
-This was built to print vouchers on a thermal printer like [this one](https://www.amazon.com/gp/product/B07R39G4WZ/) and specificly to make use of [this app](https://play.google.com/store/apps/details?id=mate.bluetoothprint) for the printing
+This was built to print vouchers on a thermal printer like [this one](https://www.amazon.com/gp/product/B07R39G4WZ/) and 
+specificly to make use of [this app](https://play.google.com/store/apps/details?id=mate.bluetoothprint) for the printing.
+
+Rolls from pfSense are store in a sqlite3 database. Since this uses [SQLAlchemy](https://www.sqlalchemy.org/) most any databases should work since I dont use dialects.
+
+You should secure this with a username and password and run it behind a real webserver list nginx or apache which provides the means for security.
+
+FYI, if you try to run this in a desktop web browser, it might seem like its not working. Thats because the output generated after clicking the button 
+is meant to only be supported by Android [bluetoohprint app](https://play.google.com/store/apps/details?id=mate.bluetoothprint).
 
 ### Installation
 

@@ -1,5 +1,5 @@
 import config
-from flask import Flask, request, Response
+from flask import Flask, request, Response, make_response
 from db import Vouchers, connect_db
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import func, asc
@@ -32,6 +32,11 @@ def index():
 @app.route("/print", methods=["GET"])
 def printer():
   time = int(request.args.get('time'))
+
+  if not time:
+    return """<h2>Invalid Input</h3>"""
+
+  #Grab the token FIFO style
   tix = session.query(Vouchers).filter(
     Vouchers.time == time,
     Vouchers.disabled == 0
@@ -42,6 +47,7 @@ def printer():
   if not bool(tix):
     return "<h3>No active vouchers found in the database</h3>"
   
+  #This is the json required my the android app
   voucher = {
     "0": {
       "type": "0",
@@ -82,12 +88,6 @@ def printer():
       "align": "0"
     },
     "6": {
-      "type": "0",
-      "content": " <br />",
-      "bold": "0",
-      "align": "0"
-    },
-    "7": {
       "type": "0",
       "content": " <br />",
       "bold": "0",

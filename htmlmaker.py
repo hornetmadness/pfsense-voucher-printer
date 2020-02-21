@@ -5,6 +5,7 @@ MAIN_HTML = Template("""
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="refresh" content="15">
   <title>Print Vouchers</title>
   <style>
     html, body {
