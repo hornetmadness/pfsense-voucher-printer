@@ -19,17 +19,14 @@ def index():
     func.count(Vouchers.time)).filter(
       Vouchers.disabled == 0
   ).group_by(Vouchers.time)
-  
-  if bool(av):
-    url = request.url
-    if bool(config.force_ssl):
-      url = url.replace("http:", "https:",1)
-      url = f"{url}print"
-    else:
-      url = f"{url}print"
-    return render(url, av)
+
+  url = request.url
+  if bool(config.force_ssl):
+    url = url.replace("http:", "https:",1)
+    url = f"{url}print"
   else:
-    return """<h2>No tickets found</h2>"""
+    url = f"{url}print"
+  return render(url, av)
 
 
 @app.route("/print", methods=["GET"])
@@ -43,7 +40,8 @@ def printer():
   ).first()
 
   if not bool(tix):
-    return "<h3>No voucers found</h3>"
+    return "<h3>No active vouchers found in the database</h3>"
+  
   voucher = {
     "0": {
       "type": "0",

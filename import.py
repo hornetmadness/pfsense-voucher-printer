@@ -26,11 +26,14 @@ def importCSV(file, time):
       keep['vid'] = row[0].lstrip(' ')
       keep['time'] = time
       bulkInsert.append(Vouchers(**keep))
-  
+    
   if bool(bulkInsert):
     session.bulk_save_objects(bulkInsert)
     session.commit()
-
+    logging.info(f"Instered {len(bulkInsert)} vouchers")
+  else:
+    logging.error(f"Failed to parse {file}")
+  
 
 
 
