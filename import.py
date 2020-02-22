@@ -30,7 +30,7 @@ def importCSV(file, time):
   if bool(bulkInsert):
     session.bulk_save_objects(bulkInsert)
     session.commit()
-    logging.info(f"Instered {len(bulkInsert)} vouchers")
+    logging.info(f"Inserted {len(bulkInsert)} vouchers")
   else:
     logging.error(f"Failed to parse {file}")
   

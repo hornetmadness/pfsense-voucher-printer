@@ -9,7 +9,7 @@ specificly to make use of [this app](https://play.google.com/store/apps/details?
 
 Rolls from pfSense are store in a sqlite3 database. Since this uses [SQLAlchemy](https://www.sqlalchemy.org/) most any databases should work since I dont use dialects.
 
-You should secure this with a username and password and run it behind a real webserver list nginx or apache which provides the means for security.
+You should secure this by running it behind a real webserver like nginx or apache which provides the means for security.
 
 FYI, if you try to run this in a desktop web browser, it might seem like its not working. Thats because the output generated after clicking the button 
 is meant to only be supported by Android [bluetoohprint app](https://play.google.com/store/apps/details?id=mate.bluetoothprint).
@@ -37,7 +37,7 @@ $ ./start.sh
 ```
 
 ### Docker
-[This image](https://hub.docker.com/repository/docker/hornetmadness/pfsence-voucher-printe) is provided
+[This image](https://hub.docker.com/r/hornetmadness/pfsense-voucher-printer) is provided
 
 
 License
