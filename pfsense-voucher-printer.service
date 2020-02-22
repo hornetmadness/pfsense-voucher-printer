@@ -1,0 +1,14 @@
+[Unit]
+Description=pfSense Voucher Printer
+Documentation=https://github.com/hornetmadness/pfsense-voucher-printer
+After=network.target
+Wants=network.target
+
+[Service]
+Type=simple
+RemainAfterExit=yes
+ExecStart=/usr/local/bin/start-voucher-printer
+WorkingDirectory=/var/www/vhosts/pfsense-voucher-printer
+
+[Install]
+WantedBy=multi-user.target

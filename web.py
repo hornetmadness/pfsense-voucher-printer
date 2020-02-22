@@ -70,24 +70,31 @@ def printer():
     },
     "3": {
       "type": "0",
-      "content": f"Code:{tix.vid}",
+      "content": f"Code:",
       "bold": "1",
       "align": "1",
       "format": "3",
     },
     "4": {
       "type": "0",
+      "content": f"{tix.vid}",
+      "bold": "1",
+      "align": "1",
+      "format": "3",
+    },
+    "5": {
+      "type": "0",
       "content": "-------------------------<br />",
       "bold": "0",
       "align": "1"
     },
-    "5": {
+    "6": {
       "type": "0",
       "content": " <br />",
       "bold": "0",
       "align": "0"
     },
-    "6": {
+    "7": {
       "type": "0",
       "content": " <br />",
       "bold": "0",
